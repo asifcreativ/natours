@@ -1,6 +1,6 @@
 .row {
     width: $grid-width;
-    background-color: #eee;
+    // background-color: #eee;
     margin: 0 auto; // * trick to center block element inside block element
 
     &:not(:last-child) {
@@ -18,7 +18,7 @@
     */
     [class^="col-"] {
         // attribute selector, ^ all classes start with 'col-'
-        background-color: orangered;
+        // background-color: orangered;
         float: left;
 
         &:not(:last-child) {
