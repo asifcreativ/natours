@@ -20,21 +20,14 @@
 900 - 1200px:   Tablet landscape
 [1200 - 1800] is where our normal styles apply ... Desktop first approach
 1800px +:       Big desktop
-*/
 
-@mixin respond-phone {
-    @media (max-width: 600px) {
-        @content
-    }
-}
-
-
-/*
 $breakpoint argument choices:
 - phone
 - tap-port
 - tab-land
 - big-desktop
+
+ORDER: base + typography > general layout + grid > page layout > components
 
 em are the best option for media queries
 1em = 16px;
@@ -49,8 +42,8 @@ em are the best option for media queries
     }
 
     @if $breakpoint==tab-port {
-        @media (max-width: 55.25em) {
-            // 900px / 16px
+        @media (max-width: 56.25em) {
+            // 900px / 16px = 56.25
             @content
         }
     }
@@ -69,3 +62,5 @@ em are the best option for media queries
         }
     }
 }
+
+// TODO: VIDEO 56 , TIME 18:55

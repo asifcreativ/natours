@@ -4,13 +4,14 @@
 900 - 1200px:   Tablet landscape
 [1200 - 1800] is where our normal styles apply ... Desktop first approach
 1800px +:       Big desktop
-*/
-/*
+
 $breakpoint argument choices:
 - phone
 - tap-port
 - tab-land
 - big-desktop
+
+ORDER: base + typography > general layout + grid > page layout > components
 
 em are the best option for media queries
 1em = 16px;
@@ -56,30 +57,33 @@ em are the best option for media queries
   box-sizing: inherit; }
 
 html {
-  font-size: 62.5%; }
-  @media (max-width: 37.5em) {
-    html {
-      font-size: 50%; } }
-  @media (max-width: 55.25em) {
-    html {
-      font-size: 60%; } }
+  font-size: 62.5%;
+  /* @include respond(phone) { this media query will not apply, it's
+    font-size: 37.5%; // 1rem = 6px; (6 / 16) * 100 = 37.5%
+} */ }
   @media (max-width: 75em) {
     html {
-      font-size: 70%; } }
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
   @media (min-width: 112.5em) {
     html {
-      font-size: 80%; } }
+      font-size: 75%; } }
 
 body {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  padding: 3rem; }
+  @media (max-width: 56.25em) {
+    body {
+      padding: 0; } }
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   /* font-size: 16px; */
   line-height: 1.7;
-  color: #777;
-  padding: 3rem; }
+  color: #777; }
 
 .heading-primary {
   color: #fff;
@@ -100,6 +104,10 @@ body {
         animation-delay: 3s;
         animation-iteration-count: 3;
         */ }
+    @media (max-width: 37.5em) {
+      .heading-primary--main {
+        letter-spacing: 1rem;
+        font-size: 5rem; } }
   .heading-primary--sub {
     display: block;
     font-size: 2rem;
@@ -108,6 +116,29 @@ body {
     /* apply animation */
     animation: moveInRight 1s ease-out;
     /* shorthand */ }
+    @media (max-width: 37.5em) {
+      .heading-primary--sub {
+        letter-spacing: .5rem; } }
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: .2rem;
+  transition: all .2s; }
+  @media (max-width: 56.25em) {
+    .heading-secondary {
+      font-size: 3rem; } }
+  @media (max-width: 37.5em) {
+    .heading-secondary {
+      font-size: 2.5rem; } }
+  .heading-secondary:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 0.2rem rgba(0, 0, 0, 0.2); }
 
 .heading-tertiary {
   font-size: 1.6rem;
@@ -654,20 +685,6 @@ body {
     /* background-color: red; */
     transform: translate(-50%, -50%);
     text-align: center; }
-
-.heading-secondary {
-  font-size: 3.5rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  display: inline-block;
-  background-image: linear-gradient(to right, #7ed56f, #28b485);
-  -webkit-background-clip: text;
-  color: transparent;
-  letter-spacing: .2rem;
-  transition: all .2s; }
-  .heading-secondary:hover {
-    transform: skewY(2deg) skewX(15deg) scale(1.1);
-    text-shadow: 0.5rem 1rem 0.2rem rgba(0, 0, 0, 0.2); }
 
 .navigation__checkbox {
   display: none; }
