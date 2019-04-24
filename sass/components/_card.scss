@@ -17,6 +17,7 @@
         top: 0;
         left: 0;
         width: 100%;
+        -webkit-backface-visibility: hidden;
         backface-visibility: hidden; // fix - hide the back part of element
         border-radius: 3px;
         overflow: hidden; // image is overflowing the parent .card
