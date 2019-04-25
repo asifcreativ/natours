@@ -13,3 +13,5 @@
 
 1. view port
 2. media queries override specific parts of global CSS for specific view port width.
+
+# BUILD PROCESS
